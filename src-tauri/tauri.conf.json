@@ -1,8 +1,8 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "Halo Minecraft Launcher",
+  "productName": "Mango Army Launcher",
   "version": "1.0.0",
-  "identifier": "com.halo.launcher",
+  "identifier": "com.mangoarmy.launcher",
   "build": {
     "frontendDist": "../dist-renderer",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Halo Minecraft Launcher",
+        "title": "Mango Army Launcher",
         "width": 1100,
         "height": 700,
         "resizable": true,

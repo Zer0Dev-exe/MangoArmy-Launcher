@@ -22,7 +22,7 @@ interface Notification {
 }
 
 function App() {
-    const [offlineUsername, setOfflineUsername] = useState('Spartan-117')
+    const [offlineUsername, setOfflineUsername] = useState('')
     const [premiumUser, setPremiumUser] = useState<{ name: string; id: string } | null>(null)
     const [premiumAuth, setPremiumAuth] = useState<any>(null)
     const [accountType, setAccountType] = useState<'offline' | 'microsoft'>('offline')
