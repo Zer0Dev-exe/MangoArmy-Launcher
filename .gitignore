@@ -1,0 +1,57 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+dist/
+dist-renderer/
+dist-ssr/
+*.local
+
+# JavaScript/TypeScript
+*.tsbuildinfo
+.eslintcache
+*.txt
+*.raw
+
+# Rust/Tauri
+src-tauri/target/
+src-tauri/binaries/
+src-tauri/gen/
+*.exe
+
+# Signer Keys (IMPORTANT: Never upload these!)
+.tauri/signer.key
+src-tauri/signer.key
+*.key
+*.pub
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Testing
+/coverage
