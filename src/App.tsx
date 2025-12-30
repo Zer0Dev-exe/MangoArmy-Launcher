@@ -22,7 +22,7 @@ interface Notification {
 }
 
 function App() {
-    const [offlineUsername, setOfflineUsername] = useState('')
+    const [offlineUsername, setOfflineUsername] = useState('Spartan-117')
     const [premiumUser, setPremiumUser] = useState<{ name: string; id: string } | null>(null)
     const [premiumAuth, setPremiumAuth] = useState<any>(null)
     const [accountType, setAccountType] = useState<'offline' | 'microsoft'>('offline')
@@ -373,7 +373,7 @@ function App() {
 
             <header className="halo-header z-20 border-b border-white/10 backdrop-blur-xl bg-black/40 h-12" data-tauri-drag-region>
                 <div className="flex items-center gap-4 flex-1" data-tauri-drag-region>
-                    <span className="text-[12px] font-black tracking-[0.4em] text-cyan-400 uppercase drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] px-4">MANGO ARMY LAUNCHER 0.1.0</span>
+                    <span className="text-[12px] font-black tracking-[0.4em] text-cyan-400 uppercase drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] px-4">MANGO ARMY LAUNCHER 1.0.0</span>
                 </div>
                 <div className="flex items-center h-full">
                     <button onClick={minimizeApp} className="w-12 h-full hover:bg-white/10 transition-colors flex items-center justify-center group">
@@ -769,8 +769,8 @@ function App() {
                             animate={{ opacity: 1, x: 0, scale: 1 }}
                             exit={{ opacity: 0, x: -100, scale: 0.9 }}
                             className={`pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-lg border backdrop-blur-md shadow-lg max-w-sm ${notif.type === 'error' ? 'bg-red-950/90 border-red-500/30 text-red-200' :
-                                    notif.type === 'success' ? 'bg-green-950/90 border-green-500/30 text-green-200' :
-                                        'bg-cyan-950/90 border-cyan-500/30 text-cyan-200'
+                                notif.type === 'success' ? 'bg-green-950/90 border-green-500/30 text-green-200' :
+                                    'bg-cyan-950/90 border-cyan-500/30 text-cyan-200'
                                 }`}
                         >
                             {notif.type === 'error' && <AlertCircle size={18} className="text-red-400 flex-shrink-0" />}
