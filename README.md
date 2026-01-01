@@ -24,7 +24,7 @@ Para que el launcher funcione correctamente en cualquier ordenador, es **OBLIGAT
 2.  **Visual C++ Redistributable**: Necesario si la aplicación no abre.
     *   📥 Descargar: [Microsoft Visual C++](https://learn.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 
-## 🚀 Instalación y Uso
+## 🚀 Instalación y Uso para Desarrolladores
 
 ### Requisitos Previos
 
