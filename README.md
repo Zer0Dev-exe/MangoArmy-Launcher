@@ -2,7 +2,7 @@
 
 ¡Bienvenido al **Mango Army Launcher**! Un launcher moderno, rápido y estético para Minecraft, desarrollado con **Electron** y **React**, inspirado en el universo de Halo.
 
-![Halo Theme](https://i.imgur.com/uVzI9mH.png)
+![Halo Theme](https://cdn.discordapp.com/attachments/1431594653647638629/1456388716888326456/image.png?ex=69582f30&is=6956ddb0&hm=e70899eb718f782ded83ed9aea6abd7fb7cadcbb1dc16f4cd0af41bb05814d6a)
 
 ## ✨ Características Principal
 
