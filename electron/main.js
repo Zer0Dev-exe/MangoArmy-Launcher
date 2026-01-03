@@ -6,6 +6,7 @@ const { Auth } = require('msmc');
 const fs = require('fs');
 const os = require('os');
 const { autoUpdater } = require('electron-updater');
+const JavaManager = require('./java-manager');
 
 // Configure auto-updater
 autoUpdater.autoDownload = false; // Don't auto-download, ask user first
@@ -144,12 +145,32 @@ const getJavaPath = () => {
 ipcMain.handle('launch_minecraft', async (event, { options }) => {
     console.log("Launching Minecraft with options:", options);
 
-    // Detect Java
-    const javaPath = getJavaPath();
-    if (!javaPath) {
-        return { success: false, error: "No se encontró Java instalado. Instala Java 17." };
+    // Initialize Java Manager
+    const launcherRoot = path.join(process.env.APPDATA || os.homedir(), '.mango_launcher');
+    const javaManager = new JavaManager(launcherRoot);
+
+    // Get or download Java automatically
+    let javaPath;
+    try {
+        mainWindow?.webContents.send('launch-progress', {
+            type: 'status',
+            data: 'Verificando Java...'
+        });
+
+        javaPath = await javaManager.getJavaPath(options.version);
+        console.log("Using Java at:", javaPath);
+
+        mainWindow?.webContents.send('launch-progress', {
+            type: 'status',
+            data: 'Java listo, iniciando Minecraft...'
+        });
+    } catch (e) {
+        console.error("Error obteniendo Java:", e);
+        return {
+            success: false,
+            error: `Error configurando Java: ${e.message}. El launcher descargará Java automáticamente.`
+        };
     }
-    console.log("Using Java at:", javaPath);
 
     // Prepare options for minecraft-launcher-core
     const launcherOptions = {
@@ -161,7 +182,7 @@ ipcMain.handle('launch_minecraft', async (event, { options }) => {
             name: options.username || "Player",
             user_properties: "{}"
         },
-        root: path.join(process.env.APPDATA || os.homedir(), '.mango_launcher'),
+        root: launcherRoot,
         version: {
             number: options.version,
             type: options.type

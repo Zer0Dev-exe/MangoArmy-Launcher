@@ -11,7 +11,9 @@
     "discord-rpc": "^4.0.1",
     "electron-updater": "6.6.2",
     "minecraft-launcher-core": "^3.2.2",
-    "msmc": "^5.0.5"
+    "msmc": "^5.0.5",
+    "tomate-loaders": "2.0.2",
+    "unzipper": "0.12.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",

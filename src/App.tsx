@@ -154,8 +154,9 @@ function App() {
                 const catMap: Record<string, string> = { 'assets': 'RECURSOS', 'natives': 'NATIVOS', 'classes': 'CLASES' };
                 const cat = catMap[data.category] || data.category || 'DATOS';
                 setLaunchStatus(`DESCARGANDO ${cat.toUpperCase()}`);
-                // Don't overwrite detail with task/total unless we want that specific info
-                // We'll use the log for "Detail" primarily, or fallback to counts
+            } else if (data.type === 'status') {
+
+                setLaunchStatus(data.data);
             } else if (data.type === 'log') {
                 const line = data.data;
                 // Filtrar lo interesante
@@ -165,8 +166,6 @@ function App() {
                 } else if (line.includes('Unpacking')) {
                     setLaunchDetail('Descomprimiendo: ' + line.split(' ').pop());
                 } else {
-                    // Keep showing last interesting line or just the log
-                    // Truncate to avoid massive layout shifts
                     if (line.length < 100) setLaunchDetail(line);
                 }
             }
